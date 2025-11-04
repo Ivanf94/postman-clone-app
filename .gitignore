@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+!FolderProfile.pubxml
+!FolderProfile.pubxml.user

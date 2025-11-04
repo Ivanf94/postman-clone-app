@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml.user" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PostmanCloneLibrary\PostmanCloneLibrary.csproj" />
   </ItemGroup>
 

@@ -106,7 +106,7 @@
             // 
             httpVerbSelection.DropDownStyle = ComboBoxStyle.DropDownList;
             httpVerbSelection.FormattingEnabled = true;
-            httpVerbSelection.Items.AddRange(new object[] { "GET", "POST" });
+            httpVerbSelection.Items.AddRange(new object[] { "GET", "POST", "PUT", "PATCH", "DELETE" });
             httpVerbSelection.Location = new Point(170, 173);
             httpVerbSelection.Name = "httpVerbSelection";
             httpVerbSelection.Size = new Size(112, 49);
@@ -151,7 +151,7 @@
             resultsTab.Location = new Point(4, 29);
             resultsTab.Name = "resultsTab";
             resultsTab.Padding = new Padding(3);
-            resultsTab.Size = new Size(751, 501);
+            resultsTab.Size = new Size(853, 501);
             resultsTab.TabIndex = 1;
             resultsTab.Text = "Results";
             resultsTab.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             resultsText.Name = "resultsText";
             resultsText.ReadOnly = true;
             resultsText.ScrollBars = ScrollBars.Both;
-            resultsText.Size = new Size(745, 495);
+            resultsText.Size = new Size(847, 495);
             resultsText.TabIndex = 6;
             // 
             // Dashboard

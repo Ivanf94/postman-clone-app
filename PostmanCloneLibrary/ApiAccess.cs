@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 
 namespace PostmanCloneLibrary;
 
@@ -8,11 +9,34 @@ public class ApiAccess : IApiAccess
 
     public async Task<string> CallApiAsync(
         string url,
-        bool formatOutput = true,
-        HttpAction action = HttpAction.GET
+        string content,
+        HttpAction action = HttpAction.GET,
+        bool formatOutput = true
+        )
+    {
+        StringContent stringContent = new(content, Encoding.UTF8, "application/json");
+        return await CallApiAsync(url, stringContent, action, formatOutput);
+    }
+
+    public async Task<string> CallApiAsync(
+        string url,
+        HttpContent? content = null,
+        HttpAction action = HttpAction.GET,
+        bool formatOutput = true
     )
     {
-        var response = await client.GetAsync(url);
+        HttpResponseMessage? response;
+        
+        switch(action)
+        {
+            case HttpAction.POST:
+                response = await client.PostAsync(url, content ?? new StringContent(""));
+                break;
+            case HttpAction.GET:
+            default:
+                response = await client.GetAsync(url);
+                break;
+        }
 
         if (response.IsSuccessStatusCode)
         {
